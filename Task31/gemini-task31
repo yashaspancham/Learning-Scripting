@@ -1,0 +1,36 @@
+### **Task 31: Basic Networking (Connectivity Checks)**
+
+In the Cloud, you can't assume a server is up just because your script started. Before a DevOps script tries to upload a backup or deploy code, it should verify the destination is reachable.
+
+**The Goal:**
+
+1. Check if the server at `google.com` is reachable using a **ping**.
+2. **Bash:** Use the `ping` command. Send only **1 packet** and hide the output (redirect it to `/dev/null`).
+3. **Python:** Use the `subprocess` module to run the same `ping` command.
+4. **Logic:**
+* If the ping succeeds (Exit Code 0), print: **"Network is UP"**.
+* If it fails, print: **"Network is DOWN"**.
+
+
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: Quiet Commands**
+
+When checking status, we don't want the screen filled with "64 bytes from...".
+
+* Use `-c 1` to send just one packet.
+* Use `> /dev/null 2>&1` to make it silent.
+
+#### **2. Python: `subprocess.run**`
+
+This is the modern way to run any Linux command from Python.
+
+* `subprocess.run(["ping", "-c", "1", "google.com"])`
+* It returns an object that has a `.returncode`. (Remember: 0 is good!).
+
+---
+
+**Can you write the Bash and Python versions for Task 31?** **Next Step:** After this, we’ll dive into **Task 32: System Resource Monitoring**. As a DevOps Engineer, you'll need to write scripts that alert you if Disk Space or RAM usage is too high. Ready to monitor some hardware?

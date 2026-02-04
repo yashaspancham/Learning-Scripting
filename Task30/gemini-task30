@@ -1,0 +1,37 @@
+### **Task 30: Signal Handling (The "Graceful Exit")**
+
+In DevOps, scripts often run for a long time (like a migration or a large backup). If a user hits **Ctrl+C** or the system sends a shutdown signal, you don't want the script to just "snap" out of existence—you want it to clean up temporary files or log exactly where it stopped.
+
+**The Goal:**
+
+1. Write a script that runs an infinite loop (printing "Working..." every second).
+2. If the user interrupts it (SIGINT / Ctrl+C):
+* **Catch** that signal.
+* Print **"Cleanup in progress... Goodbye!"**
+* **Exit** the script cleanly.
+
+
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: The `trap` Command**
+
+Bash uses `trap` to execute code when it receives a specific signal.
+
+* **Signals to know:** `SIGINT` (Ctrl+C), `SIGTERM` (Termination), `EXIT` (Whenever the script finishes).
+* **Syntax:** `trap "commands_to_run" SIGNAL`
+
+#### **2. Python: The `signal` Module**
+
+Python uses a handler function that gets triggered when a signal is received.
+
+* **Syntax:** `signal.signal(signal.SIGINT, handler_function)`
+* The handler function usually takes two arguments: `(sig, frame)`.
+
+---
+
+**Can you write the Bash and Python versions for Task 30?** (Hint: In Python, you'll need `import time` for the loop, and in Bash, use `sleep 1`).
+
+**Next Step:** Once you master signals, we move to **Task 31: Networking & Connectivity**. We'll learn how to check if a website or a server is "alive" before we try to deploy code to it! Ready?

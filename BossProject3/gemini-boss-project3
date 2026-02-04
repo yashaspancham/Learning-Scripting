@@ -1,0 +1,55 @@
+You have the structure and the logic down perfectly, but there is one logical "flip" in your Bash script and a missing `break` in your Python script!
+
+### **The Correction**
+
+**1. In Bash:**
+Your condition `if [[ $status -eq 0 ]]` actually triggers the shutdown when the status is **OK** (because 0 means success).
+
+* **Fix:** Change it to `if [[ $status -ne 0 ]]` (Not Equal) or `if [[ $status -eq 1 ]]`.
+
+**2. In Python:**
+You forgot to add the `break` command after the print statement. Without it, the script would keep checking the rest of the list even after initiating a shutdown.
+
+---
+
+### **Task 21: Working with Dates and Timestamps**
+
+Automation often requires naming files with the current date or logging exactly when an event happened.
+
+**The Goal:**
+
+1. Get the current system date and time.
+2. Format it as `YYYY-MM-DD_HH-MM`.
+3. Create a filename like `backup_2026-02-03_10-45.zip` and print it.
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: The `date` Command**
+
+Bash uses the system `date` utility. You can format the output using a `+` followed by specific codes.
+
+* **Syntax:** `$(date +"%Y-%m-%d")`
+
+#### **2. Python: The `datetime` Module**
+
+Python uses a library for this. You get the current time and then use `.strftime()` (string format time) to make it look the way you want.
+
+* **Syntax:** `now.strftime("%Y-%m-%d")`
+
+#### **3. The Formatting Codes**
+
+Both languages actually share very similar codes:
+
+* `%Y`: 4-digit year
+* `%m`: Month
+* `%d`: Day
+* `%H`: Hour (24h)
+* `%M`: Minute
+
+---
+
+**Can you write the Bash and Python versions for Task 21?**
+
+**Would you like me to show you the common formatting codes table, or are you ready to try it?**

@@ -1,0 +1,33 @@
+### **Task 11: Introduction to Lists and Arrays**
+
+Until now, we've mostly handled single variables. Now, let's look at how to store a collection of items and perform an action on all of them.
+
+**The Goal:**
+
+1. Create a list (Python) / array (Bash) of three colors: `red`, `green`, `blue`.
+2. Loop through the list/array.
+3. For each color, print: **"Color: [color_name]"**.
+
+---
+
+### **New Concepts**
+
+#### **1. Bash Arrays**
+
+Creating an array in Bash uses parentheses with **spaces** (no commas!):
+`COLORS=("red" "green" "blue")`
+
+To access **all** items in the array for a loop, you use a special syntax:
+`for COLOR in "${COLORS[@]}"; do`
+
+#### **2. Python Lists**
+
+You likely know this one well, but it's the foundation of Python data:
+`colors = ["red", "green", "blue"]`
+
+#### **3. The Difference in Syntax**
+
+* **Bash:** Uses `${ARRAY[@]}` to expand the list.
+* **Python:** The list is an object you can iterate over directly.
+
+**Can you try writing the Bash and Python versions for Task 11?**

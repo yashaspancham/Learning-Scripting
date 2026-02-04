@@ -1,0 +1,42 @@
+### **Mini-Project: "The System Audit & Archive"**
+
+**The Goal:**
+
+1. **The Source:** A list of critical system paths: `/etc/passwd`, `/etc/shadow`, `/etc/hosts`, `/etc/hostname`.
+2. **The Function:** Create a timestamp string `YYYYMMDD_HHMM`.
+3. **The Logic:**
+* Loop through the list.
+* **Check:** Does the file exist?
+* **If yes:** Copy it to a folder named `backups/` and rename it to `[timestamp]_[filename].bak`.
+* **If no:** Append a message to `missing_files.log`.
+
+
+4. **The Safety:** Ensure the `backups/` directory exists before starting.
+
+---
+
+### **Key Concepts to Remember**
+
+#### **1. Creating Directories**
+
+Before copying, your script should ensure the destination exists.
+
+* **Bash:** `mkdir -p backups` (The `-p` prevents an error if it already exists).
+* **Python:** `os.makedirs("backups", exist_ok=True)`.
+
+#### **2. Handling the File Path**
+
+When you have a path like `/etc/passwd`, you only want the `passwd` part for the new filename.
+
+* **Bash:** `$(basename "/etc/passwd")` → returns `passwd`.
+* **Python:** `os.path.basename("/etc/passwd")` → returns `passwd`.
+
+#### **3. Copying**
+
+* **Bash:** `cp`
+* **Python:** `shutil.copy()` (requires `import shutil`).
+
+---
+
+**Can you write the Bash and Python versions for this local System Archiver?**
+

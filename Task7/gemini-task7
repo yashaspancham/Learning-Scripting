@@ -1,0 +1,45 @@
+### **Task 7: Simple Functions (Reusability)**
+
+Now that you can pass data into a script, let's look at how to organize code into **functions**.
+
+**The Goal:**
+Create a script with a function called `check_status`.
+
+1. The function should take **one argument** (a number).
+2. If the number is greater than 50, it prints **"Status: High"**.
+3. If not, it prints **"Status: Low"**.
+4. Call this function three times in your script with different numbers.
+
+---
+
+### **New Syntax: Functions**
+
+**Bash Syntax:**
+Arguments in Bash functions work exactly like script arguments ($1, $2, etc.).
+
+```bash
+check_status() {
+    local VAL=$1  # 'local' keeps the variable inside the function
+    if [ $VAL -gt 50 ]; then
+        echo "High"
+    fi
+}
+
+# Calling it:
+check_status 60
+
+```
+
+**Python Syntax:**
+
+```python
+def check_status(val):
+    if val > 50:
+        print("High")
+
+# Calling it:
+check_status(60)
+
+```
+
+**Would you like to try coding the Bash version first?**

@@ -1,0 +1,39 @@
+Both are **spot on**.
+
+In **Python**, `json.loads` is exactly how you handle incoming strings from APIs or files. In **Bash**, `jq` is the "gold standard" for command-line JSON processing. Using the `-r` flag was a great move—it ensures you get a clean string (`active`) instead of a JSON-encoded string (`"active"`).
+
+---
+
+### **Task 20: Functions and Code Reusability**
+
+As your scripts grow, you don't want to rewrite the same logic over and over. You want to wrap logic into a **function**.
+
+**The Goal:**
+
+1. Create a function named `greet`.
+2. The function should take one **argument** (a name).
+3. The function should print: **"Hello, [name]! Welcome to the system."**
+4. Call the function at the end of your script with the name `"User"`.
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: Positional Parameters in Functions**
+
+Bash functions don't name their arguments in the parentheses. Instead, they use `$1`, `$2`, etc., just like script arguments.
+
+#### **2. Python: Named Arguments**
+
+Python functions define their variables clearly inside the parentheses.
+
+#### **3. Syntax Differences**
+
+* **Bash:** `function_name() { ... }` (No colon, uses curly braces).
+* **Python:** `def function_name(name):` (Uses a colon and indentation).
+
+---
+
+**Can you try writing the Bash and Python versions for Task 20?** (This is the final foundation task before we start combining them into "Boss Projects"!)
+
+**Would you like to try it?**

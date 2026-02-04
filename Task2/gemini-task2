@@ -1,0 +1,46 @@
+Let's level up the logic. In Python, you use `elif`; in Bash, the keyword is `elif`, but the syntax remains strict.
+
+### **Task 2: Multiple Conditions (The Grade Calculator)**
+
+**The Goal:**
+Update your scripts to categorize a score into grades.
+
+1. Set `SCORE=85`.
+2. If the score is **90 or above**, print: **"Grade: A"**.
+3. If the score is **80 to 89**, print: **"Grade: B"**.
+4. If the score is **70 to 79**, print: **"Grade: C"**.
+5. Otherwise, print: **"Grade: F"**.
+
+---
+
+### **New Concepts to Use**
+
+**1. The `elif` syntax:**
+
+* **Bash:**
+```bash
+if [ $SCORE -ge 90 ]; then
+    echo "Grade: A"
+elif [ $SCORE -ge 80 ]; then
+    echo "Grade: B"
+fi
+
+```
+
+
+
+**2. Logical AND (`&&`):**
+If you want to check if a number is between two values in one line:
+
+* **Bash:** `if [ $SCORE -ge 80 ] && [ $SCORE -lt 90 ]; then`
+* **Python:** `if score >= 80 and score < 90:`
+
+### **Your Challenge:**
+
+Try to write the **Bash version** first. Remember:
+
+* Watch your spaces.
+* End the whole chain with one `fi`.
+* Use `elif` for the middle conditions.
+
+**Go ahead and post your Bash code when you're ready!**

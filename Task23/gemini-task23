@@ -1,0 +1,33 @@
+### **Task 23: Writing to a File (Redirection vs. File Handles)**
+
+Now that we know how to check for a file, let's learn how to create one and put data inside it.
+
+**The Goal:**
+
+1. Create a variable `CONTENT="Update complete"`.
+2. Write that content into a file named `log.txt`.
+3. **Important:** In Python, ensure the file is closed properly after writing. In Bash, overwrite the file if it already exists.
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: Redirection Operators**
+
+* `>` : Overwrites the file with new content.
+* `>>` : Appends new content to the end of the existing file.
+
+> **Note:** If the file doesn't exist, both will create it.
+
+#### **2. Python: The `with` Statement (Context Manager)**
+
+The modern way to handle files in Python is using `with open(...)`. This automatically closes the file for you, even if an error occurs.
+
+* `'w'` : Write mode (overwrites).
+* `'a'` : Append mode.
+
+---
+
+**Can you write the Bash and Python versions for Task 23?** (Use the "overwrite" mode for both).
+
+**Would you like me to explain what happens if the directory for the file doesn't exist?**

@@ -1,0 +1,35 @@
+### **Task 8: File Generation, Filtering, and Redirection**
+
+**The Goal:**
+Create a pair of scripts (Bash and Python) that perform these three steps:
+
+1. **Generate a file** named `data.txt` containing five specific lines: `apple`, `banana`, `cherry`, `date`, and `elderberry`.
+2. **Filter that file** to find only the line containing the string `"banana"`.
+3. **Redirect/Write that output** into a new file named `result.txt`.
+
+---
+
+### **New Concepts for Task 8**
+
+#### **1. Redirection Operators (Bash)**
+
+* **`>` (Overwrite):** Takes the output of a command and puts it into a file. If the file exists, it is wiped clean first.
+* **`>>` (Append):** Adds the output to the end of the file without deleting what is already there.
+
+#### **2. The Pipe `|` (Bash)**
+
+This "pipes" the standard output of the command on the left into the standard input of the command on the right. It allows you to chain tools together without saving intermediate files.
+
+#### **3. Stream Handling (Python)**
+
+* **`with open(...)`:** The "Context Manager" way to handle files. It ensures the file closes automatically even if the script crashes.
+* **Mode `'w'` vs `'a'`:** Similar to Bash, `'w'` overwrites (like `>`) and `'a'` appends (like `>>`).
+
+#### **4. Filtering (Bash vs Python)**
+
+* **Bash:** Uses the `grep` command, which is highly optimized for searching text streams.
+* **Python:** Uses a `for` loop to iterate through the file object and an `if` statement with the `in` operator to check for substrings.
+
+---
+
+**Show me your Bash and Python scripts for this workflow when you're ready!**

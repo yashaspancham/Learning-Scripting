@@ -1,0 +1,35 @@
+### **Task 13: Search and Replace (The "Sed" and "Replace" Task)**
+
+This is a classic automation task. We want to take a string and swap one word for another.
+
+**The Goal:**
+
+1. Start with a variable containing the string: `"The server is DOWN"`.
+2. Change the word `"DOWN"` to `"UP"`.
+3. Print the new string.
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: The `sed` Command**
+
+`sed` (Stream Editor) is the ultimate tool for finding and replacing text in Bash. The syntax is:
+`echo $VAR | sed 's/SEARCH/REPLACE/'`
+*(The `s` stands for substitute).*
+
+#### **2. Python: The `.replace()` Method**
+
+Strings in Python have a built-in method for this:
+`new_string = old_string.replace("OLD", "NEW")`
+
+#### **3. Bash: Parameter Expansion (The Shortcut)**
+
+Bash actually has a built-in way to do this without `sed`:
+`${VAR/SEARCH/REPLACE}`
+
+---
+
+**Try writing the Bash and Python versions for Task 13!** *Bonus points if you try the Bash "Shorthand" version!*
+
+**Would you like to try it?**

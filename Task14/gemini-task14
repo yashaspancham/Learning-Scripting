@@ -1,0 +1,40 @@
+### **Task 14: Multiple Conditions (If-Elif-Else)**
+
+Now we’ll handle more than two paths by categorizing a value into three different "buckets."
+
+**The Goal:**
+
+1. Set a variable `TEMP` (Temperature).
+2. If `TEMP` is greater than **30**, print **"Hot"**.
+3. If `TEMP` is between **15 and 30** (inclusive), print **"Warm"**.
+4. Otherwise (below 15), print **"Cold"**.
+
+---
+
+### **New Concepts**
+
+#### **1. Multiple Conditions (`elif`)**
+
+Both languages use `elif` to check secondary conditions if the first `if` fails.
+
+#### **2. Logical "AND" Operators**
+
+To check if a number is between two values:
+
+* **Bash:** Use `-a` or the more modern `&&` inside `[[ ]]`.
+* *Example:* `[[ $VAL -ge 15 && $VAL -le 30 ]]`
+
+
+* **Python:** You can use the word `and` or the chain comparison `15 <= temp <= 30`.
+
+#### **3. Comparison Operators**
+
+| Logic | Bash (Integers) | Python |
+| --- | --- | --- |
+| Greater than or equal | `-ge` | `>=` |
+| Less than or equal | `-le` | `<=` |
+| Greater than | `-gt` | `>` |
+
+---
+
+**Try writing the Bash and Python versions for Task 14!** (Remember to try the `[[ ... && ... ]]` syntax in Bash for a more modern approach).

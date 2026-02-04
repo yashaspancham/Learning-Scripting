@@ -1,0 +1,45 @@
+### **Task 4: The "While" Loop and User Input**
+
+This task introduces **Interactivity**. We want the script to wait for the user to type something.
+
+**The Goal:**
+
+1. Set a variable `SECRET` to `7`.
+2. Ask the user: "Guess the secret number (1-10):".
+3. Use a **while loop** to keep asking as long as their guess is **not equal** to the secret.
+4. When they get it right, print: "Correct! The secret was 7."
+
+---
+
+### **New Bash Syntax to Learn**
+
+**1. Reading Input:**
+In Python, you use `input()`. In Bash, you use `read`:
+
+```bash
+echo "Enter something:"
+read USER_INPUT
+
+```
+
+**2. While Loop Syntax:**
+
+```bash
+while [ $GUESS -ne $SECRET ]; do
+    # code
+done
+
+```
+
+**3. The "Not Equal" operator:**
+
+* **Bash (Integers):** `-ne`
+* **Python:** `!=`
+
+### **The Challenge:**
+
+Try to write the **Bash version** first.
+
+**Tip:** You'll need to ask for the first `read` **before** the loop starts, and then another `read` **inside** the loop so the user can try again!
+
+**Show me your Bash script when you're ready.**

@@ -1,0 +1,46 @@
+### **Boss Project 2: The System Health Reporter**
+
+For our final boss project in this series, we are going to simulate a system check that generates a report and handles potential failures.
+
+**The Goal:**
+
+1. Define a **Function** called `check_status`.
+2. Inside the function, take a **percentage** (number) as an argument.
+3. **Logic:**
+* If the number is **>= 90**, print "CRITICAL" and **return/exit with code 1**.
+* If the number is **>= 70**, print "WARNING" and return code 0.
+* Otherwise, print "OK" and return code 0.
+
+
+4. **The Script:**
+* Create a list of "CPU Usage" numbers: `[20, 75, 95]`.
+* Loop through the numbers and call `check_status` for each.
+* If the function returns a **non-zero exit code**, print: "Alert: Shutdown initiated!" and **break** the loop.
+
+
+
+---
+
+### **New Concepts for Boss Project 2**
+
+#### **1. Function Return Values (Bash)**
+
+In Bash, functions don't "return" strings easily. They return **Exit Statuses** (0-255).
+
+* Use `return 1` inside the function.
+* Check the result immediately after calling the function using `$?`.
+
+#### **2. Function Return Values (Python)**
+
+In Python, functions usually return values like `True/False` or numbers.
+
+* Use `return 1`.
+* Check the result with `if check_status(usage) == 1:`.
+
+#### **3. Combining Logical Blocks**
+
+You are nesting a **function call** inside a **loop**, with a **conditional** checking the result to trigger a **break**.
+
+---
+
+**This is the ultimate test of your foundational skills. Can you build the System Health Reporter?**

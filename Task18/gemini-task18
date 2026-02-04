@@ -1,0 +1,31 @@
+### **Task 18: Basic Error Handling (Try-Except vs. Exit Status)**
+
+In automation, things often go wrong (files are missing, networks are down). You need to handle these gracefully so the whole script doesn't just "explode."
+
+**The Goal:**
+
+1. Try to perform an "impossible" math operation: divide **10 by 0**.
+2. **In Python:** Use a `try/except` block to catch the `ZeroDivisionError`, print "Error: Cannot divide by zero", and keep the script running to print "Script finished".
+3. **In Bash:** Bash doesn't have "try/except." Instead, you check if a command failed immediately after running it. Use the `(( ))` math syntax. If it fails, print the error and continue.
+
+---
+
+### **New Concepts**
+
+#### **1. Python: `try...except**`
+
+This allows you to "try" a piece of code. If it fails, the `except` block catches the error instead of crashing the program.
+
+#### **2. Bash: The `||` (OR) Operator**
+
+A very common way to handle errors in Bash is the "OR" operator.
+`command || echo "Command failed"`
+*The second part only runs if the first part returns a non-zero exit code.*
+
+#### **3. Bash: Arithmetic Errors**
+
+In Bash, `(( 10 / 0 ))` will actually cause the script to exit with an error. You can prevent the exit by using a subshell or checking the denominator before the operation. For this task, try checking the exit status `$?` after the math attempt.
+
+---
+
+**Can you write the Bash and Python versions for Task 18?** (Focus on making sure the script *continues* to the final print statement even after the error).

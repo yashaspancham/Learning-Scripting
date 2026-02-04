@@ -1,0 +1,43 @@
+### **Task 6: Command Line Arguments (Passing Data)**
+
+Up until now, we’ve hardcoded values like `SCORE=85` or `SECRET=7`. In the real world, scripts get data from the user at the moment they are run.
+
+**The Goal:**
+Create a script that you run like this:
+
+* **Bash:** `./script.sh John 25`
+* **Python:** `python3 script.py John 25`
+
+The scripts should take the **Name** and **Age** from the command line and print:
+**"Hello [Name], you are [Age] years old."**
+
+---
+
+### **The "Arguments" Syntax**
+
+| Feature | Bash | Python |
+| --- | --- | --- |
+| **First Arg** | `$1` | `sys.argv[1]` |
+| **Second Arg** | `$2` | `sys.argv[2]` |
+| **Script Name** | `$0` | `sys.argv[0]` |
+| **Arg Count** | `$#` | `len(sys.argv)` |
+
+**Bash Hint:**
+
+```bash
+NAME=$1
+AGE=$2
+echo "Hello $NAME..."
+
+```
+
+**Python Hint:**
+
+```python
+import sys
+name = sys.argv[1]
+# remember sys.argv[0] is the script name itself!
+
+```
+
+**Can you write the Bash and Python versions for this?**

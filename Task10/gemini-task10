@@ -1,0 +1,41 @@
+### **Task 10: Exit Codes and Error Handling**
+
+Every time a command runs in Bash or a script finishes in Python, it sends back a "status report" called an **Exit Code**.
+
+* **0** = Success.
+* **Anything else (1-255)** = Failure.
+
+**The Goal:**
+
+1. Create a script that checks if a file named `config.txt` exists.
+2. **If it exists:** Print "Config found" and exit with code **0**.
+3. **If it doesn't exist:** Print "Error: Config missing" and exit with code **1**.
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: The `$?` Variable**
+
+This special variable always holds the exit code of the *last* command that ran. You can also use the `exit` command to stop your script and set a code.
+`exit 1`
+
+#### **2. Bash: File Testing**
+
+To check if a file exists, use the `-f` flag:
+`if [ -f "filename" ]; then`
+
+#### **3. Python: `sys.exit()**`
+
+To exit a Python script with a specific code, you use `sys.exit()`.
+`import sys`
+`sys.exit(1)`
+
+#### **4. Python: Checking File Existence**
+
+There are two common ways:
+
+* `os.path.exists("filename")`
+* `from pathlib import Path` -> `Path("filename").exists()`
+
+**Try writing the Bash and Python scripts for Task 10!**

@@ -1,0 +1,37 @@
+### **Task 27: Permissions and Ownership (The Linux Security Core)**
+
+As a DevOps Engineer, you will often find that a script fails because it doesn't have "permission" to read a file (like `/etc/shadow`) or execute a tool. You need to be able to check and change these programmatically.
+
+**The Goal:**
+
+1. Check if a specific file (e.g., `audit_log.txt`) is **writable** by your script.
+2. If it is NOT writable, change the permissions so that only the owner has read/write access (octal `600`).
+3. Verify the change.
+
+---
+
+### **New Concepts**
+
+#### **1. Octal Permissions**
+
+* `7`: Read (4) + Write (2) + Execute (1)
+* `6`: Read (4) + Write (2)
+* `4`: Read only
+* **Common DevOps codes:** `755` (Public scripts), `600` (Private keys/secrets), `644` (Config files).
+
+#### **2. Bash: `chmod` and Test Operators**
+
+* `-w`: Check if file is writable.
+* `chmod`: Change mode.
+* **Syntax:** `chmod 600 filename`
+
+#### **3. Python: `os.access` and `os.chmod**`
+
+* `os.access(path, os.W_OK)`: Returns True if writable.
+* `os.chmod(path, 0o600)`: The `0o` prefix tells Python the number is **octal**.
+
+---
+
+**Can you write the Bash and Python versions for Task 27?**
+
+**Next Step:** After permissions, we need to talk about **Task 28: Exit Codes & Logic branching**. A professional script needs to "die gracefully" and tell the system *why* it failed. Would you like to tackle that next?

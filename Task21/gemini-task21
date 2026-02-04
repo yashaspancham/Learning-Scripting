@@ -1,0 +1,41 @@
+### **Task 21: Dates and Timestamps**
+
+Automation often requires naming files with the current date or logging exactly when an event happened.
+
+**The Goal:**
+
+1. Get the current system date and time.
+2. Format it as `YYYY-MM-DD_HH-MM`.
+3. Create a variable for a filename like `backup_[TIMESTAMP].zip` and print it.
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: The `date` Command**
+
+Bash uses the system `date` utility. You can format the output using a `+` followed by specific codes.
+
+* **Syntax:** `$(date +"%Y-%m-%d_%H-%M")`
+
+#### **2. Python: The `datetime` Module**
+
+Python uses a library for this. You get the current time and then use `.strftime()` (**str**ing **f**ormat **time**) to make it look the way you want.
+
+* **Syntax:** `now.strftime("%Y-%m-%d_%H-%M")`
+
+#### **3. Common Formatting Codes**
+
+Both languages share very similar codes:
+
+* `%Y`: 4-digit year (2026)
+* `%m`: Month (02)
+* `%d`: Day (03)
+* `%H`: Hour (24h format)
+* `%M`: Minute
+
+---
+
+**Try writing the Bash and Python versions for Task 21!**
+
+**Would you like me to provide a full list of the formatting codes, or are you ready to code?**

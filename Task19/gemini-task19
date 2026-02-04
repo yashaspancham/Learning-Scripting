@@ -1,0 +1,27 @@
+### **Task 19: Working with JSON (Data Parsing)**
+
+In modern dev-ops, you’ll constantly deal with JSON data from APIs or config files.
+
+**The Goal:**
+
+1. You have a string containing JSON: `{"name": "Gemini", "status": "active"}`.
+2. Parse this string and print only the value of **"status"**.
+
+---
+
+### **New Concepts**
+
+#### **1. Python: The `json` Module**
+
+Python has a built-in library. You use `json.loads()` (load string) to turn a JSON string into a Python dictionary.
+
+#### **2. Bash: The `jq` Command**
+
+Bash doesn't have a built-in JSON parser. The industry standard is a tool called **`jq`**.
+
+* **Syntax:** `echo '{"key":"val"}' | jq -r '.key'`
+* (The `-r` stands for "raw" output, so it removes the quotes).
+
+---
+
+**Try writing the Bash and Python versions for Task 19!** *(Note: For the Bash version, assume `jq` is installed on the system.)*

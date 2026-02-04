@@ -1,0 +1,34 @@
+### **Task 16: Handling Command Line Flags (The "Case" Statement)**
+
+As scripts get more complex, you often want to give users options, like `./script.sh --start` or `./script.sh --stop`.
+
+**The Goal:**
+
+1. Take the **first** command-line argument ($1 in Bash, sys.argv[1] in Python).
+2. Use a "Switch" or "Case" logic to check the input:
+* If it's `"start"`, print **"System starting..."**.
+* If it's `"stop"`, print **"System stopping..."**.
+* For anything else, print **"Invalid option"**.
+
+
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: The `case` Statement**
+
+Instead of many `if/elif` blocks, Bash uses `case`. It’s cleaner for matching strings. Note the `;;` used to end each section and `esac` (case spelled backwards) to end the block.
+
+#### **2. Python: `match-case` (Python 3.10+)**
+
+Modern Python has a `match` statement that works very similarly to Bash's `case`. For older versions, people use `if/elif`.
+
+#### **3. Wildcards in Case**
+
+* In Bash, `*)` acts as the "default" or "else" case.
+* In Python, `case _:` acts as the "default".
+
+---
+
+**Can you try writing Task 16 using `case` for Bash and either `match` or `if/elif` for Python?**

@@ -1,0 +1,29 @@
+### **Task 1: Basic Variables and Conditional Logic**
+
+**The Goal:**
+Create two scripts (one in **Bash**, one in **Python**) that do the following:
+
+1. Set a variable named `SCORE` to the value `85`.
+2. Check if the score is **greater than or equal to 70**.
+3. If it is, print: **"Passing Grade"**.
+4. If it is not, print: **"Failing Grade"**.
+
+**Key Bash Rules to remember:**
+
+* **No spaces** when assigning variables: `NAME=VALUE`.
+* **Spaces are mandatory** inside the brackets for `if` statements: `if [ $VAR -ge 70 ]; then`.
+* **Numeric comparisons** in Bash use flags:
+* `-ge` (Greater than or equal to)
+* `-gt` (Greater than)
+* `-le` (Less than or equal to)
+* `-lt` (Less than)
+* `-eq` (Equal to)
+
+
+
+**How to run your scripts:**
+
+* **Python:** `python3 script.py`
+* **Bash:** `bash script.sh`
+
+**Try coding both. Once you're done or if you get stuck, let me know and we’ll move to Task 2!**

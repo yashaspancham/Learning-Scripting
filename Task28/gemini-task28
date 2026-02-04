@@ -1,0 +1,39 @@
+### **Task 28: Exit Codes and "Failing Fast"**
+
+In a DevOps pipeline (like Jenkins or GitHub Actions), the system needs to know if your script succeeded or failed. It doesn't read your `echo` statements; it looks at the **Exit Code**.
+
+* **0**: Success
+* **1 to 255**: Failure (different numbers can represent different types of errors).
+
+**The Goal:**
+
+1. Try to change directory (`cd`) into a folder that doesn't exist (e.g., `/tmp/no_folder`).
+2. **If it fails:** Print "Error: Directory not found" and **exit the script immediately** with a status of `1`.
+3. If it succeeds, print "Success" and exit with `0`.
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: `exit` and `$?**`
+
+* `exit 1`: Stops the script and sends a failure signal.
+* `||`: The "OR" operator. A common shorthand is: `cd /dir || exit 1`.
+
+#### **2. Python: `sys.exit()**`
+
+To send an exit code in Python, you need the `sys` module.
+
+* `import sys`
+* `sys.exit(0)` for success.
+* `sys.exit(1)` for failure.
+
+#### **3. Try/Except (Python)**
+
+Instead of just checking if a folder exists, Pythonistas "try" the action and "catch" the error if it fails.
+
+---
+
+**Can you write the Bash and Python versions for Task 28?**
+
+**Next Step:** Once you master exit codes, we'll look at **Task 29: Environment Variables**. This is how we store configurations without hardcoding them into the script! Ready?

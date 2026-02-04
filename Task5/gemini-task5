@@ -1,0 +1,44 @@
+### **Task 5: Working with Files (Automation Basics)**
+
+This is the "final boss" of the basics. We are going to combine **loops**, **conditionals**, and **file system commands**.
+
+**The Goal:**
+
+1. Create a loop that creates 5 empty files named `file1.txt`, `file2.txt`, up to `file5.txt`.
+2. Then, write a **second loop** that looks at all files in the current folder.
+3. If a file's name contains the number **3**, print: **"Found the special file: file3.txt"**.
+4. Otherwise, print: **"Checking: [filename]"**.
+
+---
+
+### **New Bash Syntax to Learn**
+
+**1. Creating a file:**
+Use the `touch` command: `touch filename.txt`.
+
+**2. Wildcards (Globbing):**
+To loop over files in a folder:
+
+```bash
+for FILE in *.txt; do
+    echo $FILE
+done
+
+```
+
+**3. Pattern Matching in an If-Statement:**
+To check if a string contains a character (like the number 3):
+
+* **Bash:** `if [[ $FILE == *3* ]]; then` (The `*` are wildcards).
+* **Python:** `if "3" in filename:`
+
+### **The Challenge:**
+
+Try to write the **Bash version** first.
+
+**Structure hint:**
+
+1. Use one `for` loop to `touch` the 5 files.
+2. Use a second `for` loop to iterate through `*.txt` and use the `[[ ... ]]` syntax for the string check.
+
+**Post your Bash script when you're ready!**

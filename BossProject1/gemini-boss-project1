@@ -1,0 +1,39 @@
+### **Boss Project 1: The Automated Log Analyzer**
+
+Now that you've mastered the basics, let's combine several concepts (Arrays/Lists, Loops, Conditionals, and String Manipulation) into one "Boss Project."
+
+**The Goal:**
+You have a list of log entries. You need to loop through them, count how many "ERROR" messages exist, and create a "clean" version of the log where "ERROR" is replaced with "FIXED".
+
+**Requirements:**
+
+1. **The Data:** `["INFO: Start", "ERROR: Connection failed", "INFO: Retrying", "ERROR: Timeout"]`
+2. **The Logic:**
+* Loop through the entries.
+* If an entry contains "ERROR", increment a counter.
+* Create a new list/array where every "ERROR" is replaced with "FIXED".
+
+
+3. **The Output:**
+* Print: "Total Errors Found: [count]"
+* Print: "Cleaned Logs: [the new list]"
+
+
+
+---
+
+### **New Concepts for the Boss Project**
+
+#### **1. Appending to a List/Array**
+
+* **Python:** Use `.append()`.
+* **Bash:** Use `ARRAY+=("new item")`.
+
+#### **2. Substring Searching**
+
+* **Python:** `if "ERROR" in entry:`
+* **Bash:** `if [[ $entry == *"ERROR"* ]]; then` (The `*` are wildcards).
+
+---
+
+**This is a big one! Take your time—can you write the Bash and Python versions for Boss Project 1?**

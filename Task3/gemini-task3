@@ -1,0 +1,41 @@
+### **Task 3: The "For" Loop**
+
+In Python, you’re used to `for i in range()`. In Bash, we use `do` and `done` to wrap the loop.
+
+**The Goal:**
+Create two scripts that:
+
+1. Loop through the numbers **1 to 10**.
+2. Inside the loop, check if the number is **even or odd**.
+3. Print **"X is even"** or **"X is odd"**.
+
+---
+
+### **New Bash Syntax to Learn**
+
+**1. The Loop:**
+
+```bash
+for i in {1..10}; do
+    # code here
+done
+
+```
+
+**2. The Modulo (Remainder) Operator:**
+Bash handles math slightly differently. To check a remainder, you can use the `(( ))` syntax:
+
+```bash
+if (( i % 2 == 0 )); then
+    echo "even"
+fi
+
+```
+
+*(Note: Inside double parentheses `(( ))`, you don't need the `$` sign for variables and you can use standard math symbols like `==`, `>`, and `<`!)*
+
+### **The Challenge:**
+
+Try to write the **Bash version** first. Use the `for i in {1..10}; do` structure and try using the `(( i % 2 == 0 ))` trick for the even/odd check.
+
+**Post your Bash code whenever you're ready!**

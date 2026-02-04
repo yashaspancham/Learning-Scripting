@@ -1,0 +1,37 @@
+### **New Concept: Parsing `.env` files**
+
+#### **1. Bash: The `export` and `source` method**
+
+In Bash, if your `.env` file looks like `APP_ENV=production`, you can use the `export` command combined with `source` to load them into your current shell session.
+
+#### **2. Python: The `python-dotenv` library**
+
+In the Python world, the `python-dotenv` package is the industry standard. It looks for a file named `.env` and loads it into `os.environ`.
+
+---
+
+### **Task 29 (Revised): The Environment-Aware Script**
+
+**The Goal:**
+
+1. Create a file named `.env` containing: `APP_ENV=production`.
+2. Write a script that:
+* **Python:** Uses `os.environ.get()` to find `APP_ENV`.
+* **Bash:** Uses `source .env` to load the variable.
+
+
+3. Print the security mode based on that variable.
+
+#### **Python Note**
+
+Since I'm not providing scripts, remember that `os.environ.get('APP_ENV')` is safer than `os.environ['APP_ENV']` because it won't crash your script if the file is missing or the variable isn't set.
+
+#### **Bash Note**
+
+Be careful! `source .env` literally executes the contents of that file. In a professional setting, we usually check if the file exists first using `[[ -f .env ]]`.
+
+---
+
+**Can you write the Bash and Python versions for Task 29 using the `.env` file approach?**
+
+**Next Step:** After this, we’ll dive into **Task 30: Signal Handling (Trap)**. This is essential for DevOps because it ensures that if a script is interrupted (like a `Ctrl+C` or a server shutdown), it cleans up its temporary files and logs a "Terminated" message before it dies. Ready for that?

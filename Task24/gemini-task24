@@ -1,0 +1,30 @@
+### **Task 24: Reading from a File**
+
+Now let's do the opposite: pull that data back out of the file and into a variable.
+
+**The Goal:**
+
+1. Open the file `log.txt` that you just created.
+2. Read the contents into a variable.
+3. Print the variable with a prefix: **"File Content: [content]"**.
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: Command Substitution or `cat**`
+
+The easiest way to get file content into a variable is using `$(cat filename)`.
+
+* **Example:** `VAR=$(cat log.txt)`
+
+#### **2. Python: The `.read()` Method**
+
+Just like writing, you use the `with open` block, but change the mode to `'r'` (read).
+
+* **Example:** `content = file.read()`
+
+---
+
+**Can you write the Bash and Python versions for Task 24?**
+

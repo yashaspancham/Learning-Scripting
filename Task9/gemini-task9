@@ -1,0 +1,37 @@
+### **Task 9: Environment Variables and Defaults**
+
+Now that you can move data between files, let's look at how to get data from the **System Environment**.
+
+**The Goal:**
+
+1. Check for an **Environment Variable** named `USER_NAME`.
+2. If it exists, print **"Hello, [USER_NAME]"**.
+3. If it does **not** exist (or is empty), use a default value of **"Guest"** and print **"Hello, Guest"**.
+
+---
+
+### **New Concepts**
+
+#### **1. Environment Variables**
+
+These are variables that live in your terminal session, not just your script. You can set one while running your script like this:
+
+* `USER_NAME=Bob python3 script.py`
+* `USER_NAME=Bob bash script.sh`
+
+#### **2. Bash: Checking for Empty Strings**
+
+To check if a variable is empty, we use the `-z` flag inside brackets:
+`if [ -z "$USER_NAME" ]; then`
+
+#### **3. Python: `os.environ**`
+
+To talk to the system, Python needs the `os` module. You can access variables like a dictionary:
+`name = os.environ.get("USER_NAME", "Guest")`
+*(Note: The second part of `.get()` is the default value if the key is missing!)*
+
+#### **4. Bash Shorthand for Defaults**
+
+Bash has a very cool trick for defaults: `${VAR:-default}`. This means "Use $VAR, but if it's empty, use 'default'".
+
+**Can you try writing the Bash and Python versions for Task 9?**

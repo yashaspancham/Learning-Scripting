@@ -1,0 +1,34 @@
+### **Task 32: Monitoring Disk Space**
+
+**The Goal:**
+
+1. Get the current disk usage percentage of your root directory (`/`).
+2. If the usage is **above 90%**, print a warning: **"Low Disk Space!"**
+3. If it is below 90%, print: **"Disk Space OK."**
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: Command Substitution with Pipelines**
+
+To get a number from a command, we chain small tools together.
+
+* `df /`: Reports file system disk space usage.
+* `awk 'NR==2 {print $5}'`: `NR==2` targets the second line; `{print $5}` grabs the 5th column.
+* `tr -d '%'`: **Tr**anslate/delete the percentage sign so it becomes a plain number.
+* **Comparison:** In Bash, we use `-gt` (Greater Than) for numbers because the `>` symbol is usually reserved for redirecting files.
+
+#### **2. Python: Math and `shutil**`
+
+Python gives us the exact byte count, so we have to do a little school math.
+
+* `usage = shutil.disk_usage("/")`: Returns a named tuple with `total`, `used`, and `free`.
+* **The formula:** `(usage.used / usage.total) * 100` gives us the percentage.
+* **Integer conversion:** Use `int()` to turn a decimal (like 45.8) into a whole number (45) for easier comparison.
+
+---
+
+**Can you try writing the Bash and Python versions for Task 32?**
+
+**Next Step:** Once you are comfortable with this, we will look at **Task 33: Environment "Cleanup"**. We'll learn how to find and delete old files (like log files older than 7 days) to prevent that disk from ever hitting 90%! Would you like that?

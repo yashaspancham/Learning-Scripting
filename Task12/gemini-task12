@@ -1,0 +1,32 @@
+### **Task 12: Finding and Counting (Grep vs. Count)**
+
+Now we are going to combine arrays/lists with a search task.
+
+**The Goal:**
+
+1. Create a collection of strings: `["error", "warning", "error", "success", "error"]`.
+2. Loop through the collection.
+3. Count how many times the word **"error"** appears.
+4. At the end, print: **"Total Errors: [count]"**.
+
+---
+
+### **New Concepts**
+
+#### **1. Incrementing Variables**
+
+* **Bash:** To add 1 to a variable, you use the `(( ))` syntax: `((count++))`.
+* **Python:** Use the standard increment: `count += 1`.
+
+#### **2. Initializing**
+
+In both languages, you must set `count=0` before the loop starts, or you will get an error (Python) or a blank result (Bash).
+
+#### **3. Bash String Comparison**
+
+Inside your loop, use the `==` operator within `[[ ]]` to check if the current item matches "error".
+`if [[ $item == "error" ]]; then`
+
+---
+
+**Can you write the Bash and Python versions for Task 12?**

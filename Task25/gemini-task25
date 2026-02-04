@@ -1,0 +1,35 @@
+Both are **perfectly executed**.
+
+In Bash, `$(cat log.txt)` is the most common way to grab file contents. In Python, using `file.read()` inside the `with` block is the safest, most readable approach. You've officially covered the full **CRUD** (Create, Read, Update, Delete) cycle for files!
+
+---
+
+### **Task 25: Simple String Slicing (Cutting Strings)**
+
+Sometimes you have a string like a serial number or a date, and you only need a specific part of it (e.g., the first 4 characters).
+
+**The Goal:**
+
+1. Start with the variable: `ID="2026-SERVER-99"`.
+2. Extract just the year (**2026**) into a new variable.
+3. Print: **"Year: [year]"**.
+
+---
+
+### **New Concepts**
+
+#### **1. Python: Slicing**
+
+Python uses a very intuitive `[start:stop]` syntax.
+
+* `year = ID[0:4]` (This takes characters from index 0 up to, but not including, 4).
+
+#### **2. Bash: Parameter Expansion Slicing**
+
+Bash has a similar built-in syntax: `${VAR:offset:length}`.
+
+* `year=${ID:0:4}` (Start at index 0, take 4 characters).
+
+---
+
+**Can you write the Bash and Python versions for Task 25?**

@@ -1,0 +1,1 @@
+echo '{"name":"Gemini","status":"active"}' | jq -r ".status"
