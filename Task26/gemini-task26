@@ -1,0 +1,40 @@
+### **Task 26: Archive Compression (Tar/Gzip)**
+
+**The Goal:**
+
+1. Generate a final archive name: `etc_backup_[TIMESTAMP].tar.gz`.
+2. Compress the entire `backups/` directory into that single file.
+3. Remove the temporary `backups/` folder so the server stays clean.
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: The `tar` Utility**
+
+In Linux, `tar` (Tape Archive) is the primary tool for bundling files.
+
+* **Flags:**
+* `-c`: **C**reate a new archive.
+* `-z`: Compress the archive using **g**zip.
+* `-f`: Specify the **f**ilename of the archive.
+
+
+* **Cleaning up:** `rm -rf` deletes a directory and its contents recursively. **Be careful with this command!**
+
+#### **2. Python: `shutil.make_archive**`
+
+Python provides a high-level function to handle compression without needing to call external system commands.
+
+* **Syntax:** `shutil.make_archive(base_name, format, root_dir)`
+* **Cleaning up:** `shutil.rmtree()` is the Python equivalent of `rm -rf`.
+
+#### **3. Positional Precision**
+
+In DevOps, you always ensure you are in the right directory before running destructive commands like `rm`.
+
+---
+
+**Can you append the compression and cleanup logic to your previous "System Audit & Archive" scripts?**
+
+**Next Step:** Once this is done, we will move to **Task 27: Environment Variables**. You cannot hardcode passwords or AWS keys in scripts if you want to be a professional Cloud Engineer. We'll learn how to keep them secret. Ready?
