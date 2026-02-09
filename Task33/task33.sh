@@ -1,0 +1,2 @@
+#!/bin/bash
+find -name "*.log" -mtime +7 -delete

@@ -1,0 +1,3 @@
+#m h dm m dw /script
+ */5 * *  * * /bin/bash /home/user/watchdog.sh #bash script
+ */5 * *  * * /user/bin/python3 /homr/user/watchdog.py #python script

@@ -1,0 +1,34 @@
+### **Task 38: System Specs (CPU & RAM)**
+
+In DevOps, before you run a heavy task (like a database migration or video processing), your script should check if the server has enough "muscle" (RAM and CPU) to handle it.
+
+**The Goal:**
+
+1. Get the **Total RAM** available on the system.
+2. Get the **Number of CPU cores**.
+3. Print: **"System has [X] Cores and [Y] MB of RAM."**
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: `/proc` filesystem**
+
+Linux stores system info in a "virtual" folder called `/proc`. It’s not real files on a disk; it's a window into the Kernel.
+
+* **CPU Cores:** `nproc` is the easiest command, or you can count lines in `/proc/cpuinfo`.
+* **RAM:** `free -m` shows memory in Megabytes. We usually use `awk` to grab the "Total" value from the second line.
+
+#### **2. Python: `os.cpu_count()` and `psutil**`
+
+Python has built-in ways to see hardware without parsing text files.
+
+* `os.cpu_count()`: Returns the number of logical CPUs.
+* `psutil.virtual_memory()`: Provides a detailed breakdown of RAM (though if you don't have `psutil` installed, we can read `/proc/meminfo` using standard file opening).
+
+---
+
+**Can you write the Bash and Python versions for Task 38?**
+*(Hint for Bash RAM: `free -m | awk '/Mem:/ {print $2}'` is a very clean way to get the total.)*
+
+**Next Step:** Once you can read the hardware, we'll move to **Task 39: User Management**. We'll learn how to check if a specific user (like "admin") exists on the system. This is crucial for security automation! Ready?

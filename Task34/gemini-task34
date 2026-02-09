@@ -1,0 +1,37 @@
+### **Task 34: Process Management (Is it Running?)**
+
+In the cloud, services like Nginx, Docker, or your own custom Python apps can sometimes crash. A common DevOps task is to write a "Watchdog" script that checks if a process is still alive and alerts you (or restarts it) if it’s gone.
+
+**The Goal:**
+
+1. Check if a process named `python3` is currently running.
+2. **Logic:**
+* If it is running, print: **"Process is healthy."**
+* If it is NOT running, print: **"CRITICAL: Process not found!"**
+
+
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: `pgrep**`
+
+Instead of using a messy combination of `ps aux | grep ...`, Linux has a dedicated tool called `pgrep` (Process Grep).
+
+* `pgrep python3`: This looks for any process with "python3" in the name.
+* **Exit Codes:** If `pgrep` finds a match, it returns **0**. If it finds nothing, it returns **1**.
+
+#### **2. Python: The `psutil` Library**
+
+While you *can* use `os` for this, the industry standard for Python process management is a library called `psutil`. However, since we are mastering the basics, we will use a loop over `os.popen` or `subprocess` to check the system's process list.
+
+* `os.popen("ps -e").read()`: This runs the "ps" command and lets Python read the output as a big string.
+* You then check if `"python3"` is in that string.
+
+---
+
+**Can you write the Bash and Python versions for Task 34?**
+*(Note: For the Python version, try checking if the string "python3" exists within the output of the `ps` command.)*
+
+**Next Step:** Once you can monitor processes, we will look at **Task 35: The Auto-Restarter**. We'll combine your process check with a command to actually *launch* the program if it's missing! Ready to automate some healing?

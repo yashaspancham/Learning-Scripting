@@ -1,0 +1,37 @@
+### **Task 35: The Self-Healing Script (The Auto-Restarter)**
+
+In production, just *knowing* a process is dead isn't enough. We want the system to fix itself. This is the core of "Site Reliability Engineering" (SRE).
+
+**The Goal:**
+
+1. Check if a specific "dummy" script (let's call it `webapp.py`) is running.
+2. **Logic:**
+* If it is running, do nothing and print "Service is up."
+* If it is NOT running, print "Service down! Restarting..." and then **start** the script in the background.
+
+
+
+---
+
+### **New Concepts**
+
+#### **1. Running in the Background (`&`)**
+
+When you start a process in a script, you usually don't want your monitoring script to "wait" for it to finish.
+
+* **Bash:** `python3 webapp.py &` (The `&` sends it to the background).
+* **Python:** `subprocess.Popen(["python3", "webapp.py"])` (Unlike `run`, `Popen` starts the process and then moves on immediately).
+
+#### **2. Log Redirection**
+
+When a service restarts, you want its output to go to a file, not your screen.
+
+* **Bash:** `python3 webapp.py > service.log 2>&1 &`
+* **Python:** `with open("service.log", "a") as log: subprocess.Popen(..., stdout=log, stderr=log)`
+
+---
+
+**Can you write the Bash and Python versions for Task 35?**
+*(Note: For testing, you can just create a file called `webapp.py` that contains `import time; while True: time.sleep(1)`).*
+
+**Next Step:** Once you can restart services, we’ll move to **Task 36: Cron Jobs & Automation**. We’ll learn how to tell the Linux OS to run your "Self-Healing" script automatically every 5 minutes so you can sleep while the server manages itself! Ready?

@@ -1,0 +1,6 @@
+/var/log/watchdog.log {
+    weekly
+    rotate 4
+    compress
+    missingok
+}

@@ -1,0 +1,50 @@
+### **Task 37: Log Rotation (Managing Growth)**
+
+Now that your scripts are running automatically every 5 minutes, they are generating logs (like `service.log`). If that service restarts many times, the log file will eventually grow to several Gigabytes and crash your server.
+
+**The Goal:**
+Understand **Logrotate**, the system tool that "rotates" logs (renames the old one, compresses it, and starts a fresh one).
+
+**The Logic:**
+You create a configuration file that tells Linux:
+
+1. **How often** to rotate (Daily/Weekly).
+2. **How many** old logs to keep (e.g., keep 4 weeks of history).
+3. **Compress** old logs to save space.
+
+---
+
+### **New Concepts**
+
+#### **1. The Logrotate Config File**
+
+Logs are managed in `/etc/logrotate.d/`. A standard config looks like this:
+
+```text
+/home/user/service.log {
+    daily
+    rotate 7
+    compress
+    missingok
+}
+
+```
+
+#### **2. The Flags:**
+
+* `daily`: Rotate every day.
+* `rotate 7`: Keep 7 old files before deleting the oldest one.
+* `compress`: Turn old logs into `.gz` files (saves ~90% space).
+* `missingok`: Don't throw an error if the log file hasn't been created yet.
+
+---
+
+**Task 37 Challenge:**
+Imagine your `watchdog.py` is generating a log at `/var/log/watchdog.log`.
+
+1. **Bash/Linux:** Write a logrotate configuration block that rotates this log **weekly**, keeps **4** old copies, and **compresses** them.
+2. **Python:** Since Logrotate is a Linux system tool, Python usually doesn't handle the rotation itself. However, a Python developer needs to use `logging.handlers.RotatingFileHandler` if they want the *script* to handle it.
+
+**Can you try writing the Logrotate config block for the first part?**
+
+**Next Step:** Once we finish Logrotation, we move to **Task 38: Basic System Info (Hardware Specs)**. We’ll learn how to pull CPU and RAM details so your script can "know" what kind of machine it's running on. Ready?

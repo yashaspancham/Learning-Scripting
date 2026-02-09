@@ -1,0 +1,105 @@
+### **Task 33: Finding and Cleaning Old Files**
+
+Now that you can check if the disk is full, you need a way to fix it. A common DevOps task is to find and delete "old" logs or temporary files to save space.
+
+**The Goal:**
+
+1. Identify all files ending in `.log` in a specific directory (let's use a dummy folder called `temp_logs/`).
+2. **Filter:** Find only the files that were modified **more than 7 days ago**.
+3. **Action:** Delete those files.
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: The `find` Command**
+
+The `find` utility is the most powerful tool for this. It can search by name, type, and time.
+
+* `-name "*.log"`: Look for log files.
+* `-mtime +7`: Find files **m**odified **more than 7 days** ago.
+* `-delete`: A built-in flag to remove whatever it finds.
+
+> **Warning:** Always run `find` without `-delete` first to see what it *would* delete!
+
+#### **2. Python: `os.path.getmtime` and `time**`
+
+In Python, we have to compare the file's last modified time with the current time.
+
+* `os.path.getmtime(path)`: Returns the time in "seconds since 1970" (Unix Epoch).
+* `time.time()`: Returns the current time in the same format.
+* **The Logic:** If `(current_time - file_time)` is greater than `7 days` (measured in seconds), then delete the file.
+* **Math:**  seconds.
+
+---
+
+**Can you write the Bash and Python versions for Task 33?** *(Tip: For Python, you'll need to use `os.listdir()` or `os.scandir()` to loop through the files in the directory first.)*
+
+**Next Step:** Once you've mastered cleaning files, would you like to learn **Task 34: Process Checking**? We will learn how to see if a specific program (like `python3` or `bash`) is running on your system.
+
+
+
+
+Note:Cmds to create temp_logs
+# 1. Create the directory
+mkdir -p temp_logs
+
+# 2. Create a fresh log (Current time)
+touch temp_logs/today.log
+
+# 3. Create a 10-day old log (YYYYMMDDhhmm format)
+# This sets the date to January 20th, 2026
+touch -t 202601201200 temp_logs/old_system.log
+
+# 4. Create a 30-day old log
+touch -t 202601011200 temp_logs/very_old_database.log
+
+# 5. Create a file that ISN'T a log (to test your filter)
+touch -t 202601011200 temp_logs/important_script.py
+
+
+
+
+
+
+
+I love the speed, but I have to put on my **DevOps Mentor** hat for a second!
+
+Your **Bash** script is 100% correct—that is exactly how a pro would do it in a one-liner.
+
+However, for **Python**, using `subprocess` to call a Bash command (`find`) is usually considered a "shortcut." If you are writing a Python script, you generally want to use **Native Python** (the `os` or `pathlib` modules). This makes your script "Cross-Platform" (it would work on Windows too, where the `find` command is totally different).
+
+---
+
+### **Task 33 (The Python Re-Take): Native File Management**
+
+**The Goal:**
+Rewrite the Python version using **only** Python libraries (no `subprocess`).
+
+---
+
+### **New Concepts (Native Python)**
+
+#### **1. `os.listdir()` and `os.remove()**`
+
+* `os.listdir("temp_logs")`: Gives you a list of all filenames in that folder.
+* `os.remove(path)`: Deletes a specific file.
+
+#### **2. Filtering by Name**
+
+* Since we only want `.log` files, you can use the string method: `filename.endswith(".log")`.
+
+#### **3. The Time Comparison**
+
+* `os.path.getmtime(path)`: Gets the "Last Modified" time.
+* `time.time()`: Gets right "Now".
+* **The Math:** If `(Now - Modified_Time) > (7 * 86400)`, the file is too old.
+
+---
+
+**Can you try the Python version again using `os` and `time`?** (Keep your Bash version as it was—it was perfect).
+
+**Next Step:** Once you finish the "Native" Python version, we'll move to **Task 34: Process Management**. We'll learn how to check if a specific program (like `nginx` or `python`) is currently running in the background. Ready?
+
+
+

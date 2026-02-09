@@ -1,0 +1,46 @@
+### **Task 36: Scheduling with Cron (The "Auto" in Automation)**
+
+Now that you have a script that can heal a service, you shouldn't have to run it manually. In Linux, we use the **Cron** daemon to schedule tasks. As a DevOps Engineer, you will use `crontab` constantly to schedule backups, log cleanups, and health checks.
+
+**The Goal:**
+
+1. You won't write a script for this task—you will write a **Crontab Entry**.
+2. **The Schedule:** Set your script to run **every 5 minutes**.
+3. **The Logic:** Ensure the system knows where to find your script by using **Absolute Paths**.
+
+---
+
+### **New Concepts**
+
+#### **1. The Crontab Format**
+
+Crontab uses 5 stars to represent time: `* * * * * command_to_run`.
+
+* `Minute` (0-59)
+* `Hour` (0-23)
+* `Day of Month` (1-31)
+* `Month` (1-12)
+* `Day of Week` (0-6)
+
+#### **2. Absolute Paths**
+
+When Cron runs a script, it doesn't know "where" you are. It doesn't have your shell's history or environment.
+
+* **Bad:** `python3 myscript.py`
+* **Good:** `/usr/bin/python3 /home/user/scripts/watchdog.py`
+
+#### **3. Common Schedules**
+
+* `*/5 * * * *`: Every 5 minutes.
+* `0 * * * *`: Every hour (on the hour).
+* `0 0 * * *`: Every night at midnight.
+
+---
+
+### **The Task**
+
+**1. Bash Task:** Write the one-line string you would add to your `crontab -e` to run your Bash watchdog script every 5 minutes. Use `/home/user/watchdog.sh` as the path.
+
+**2. Python Task:** Write the one-line string you would add to your `crontab -e` to run your Python watchdog script every 5 minutes. Use `/usr/bin/python3` and `/home/user/watchdog.py`.
+
+**Next Step:** Once you understand scheduling, we will move to **Task 37: Log Rotation with Logrotate**. We'll learn how the system automatically handles files that get too big so they don't eat your disk space. Ready to manage system-level logs?
