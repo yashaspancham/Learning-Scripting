@@ -1,0 +1,33 @@
+### **Task 42: Moving Data (Automated SCP)**
+
+Checking connectivity is step one; moving files is step two. As a DevOps Engineer, you'll often need to push updated configurations or pull logs from a remote server.
+
+**The Goal:**
+
+1. Copy a file named `backup.tar.gz` from your local machine to the `/tmp` folder on a remote server (`3.7.55.8`).
+2. Like the previous task, ensure it doesn't hang forever if the connection is slow.
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: The `scp` Command**
+
+`scp` (Secure Copy) uses the same engine as SSH.
+
+* **Syntax:** `scp [options] [source] [user@host:destination]`
+* You can use the same `-o` flags we used in SSH to keep the script from hanging.
+* **Example:** `scp -o ConnectTimeout=5 backup.tar.gz user@3.7.55.8:/tmp/`
+
+#### **2. Python: `subprocess` for SCP**
+
+While there are libraries like `paramiko` for SSH/SCP, in simple DevOps scripts, we usually stick to `subprocess` because it's already installed on every Linux machine.
+
+* Use `subprocess.run` just like you did for the SSH check.
+* **Logic:** Check the `returncode`. If it's `0`, the file was transferred successfully.
+
+---
+
+**Can you write the Bash and Python versions for Task 42?**
+
+**Next Step:** After moving files, we'll reach **Task 43: Remote Command Execution**. We'll learn how to tell the remote server to "Unzip this file I just sent you." Ready to control servers from a distance?

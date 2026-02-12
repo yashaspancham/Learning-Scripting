@@ -1,0 +1,34 @@
+### **Task 40: Security Automation (Password Expiry)**
+
+As a DevOps or System Administrator, you don't want to find out a service account's password expired because the website suddenly went down. You write scripts to "audit" these dates.
+
+**The Goal:**
+
+1. Check when the password for the user `developer` was last changed.
+2. For this task, simply **extract and print** the "Last Password Change" date.
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: The `chage` Command**
+
+The `chage` (Change Age) command is the primary tool for managing password aging.
+
+* `chage -l username`: Lists all aging details (expiry, last change, etc.).
+* To get just the date, we usually combine it with `grep` and `cut`.
+* **Example:** `chage -l developer | grep "Last password change" | cut -d: -f2`
+
+#### **2. Python: Reading `/etc/shadow` (The Hard Way)**
+
+Python’s `pwd` module doesn't show password dates for security reasons. To get this info, you usually have to read `/etc/shadow` (which requires **root/sudo** permissions).
+
+* Since reading `/etc/shadow` is complex for a beginner, a common DevOps "bridge" is to use Python to run the Bash `chage` command and parse the result.
+* **Method:** `subprocess.check_output(["chage", "-l", "developer"])`.
+
+---
+
+**Can you write the Bash and Python versions for Task 40?**
+*(Note: Since you might not have a user named `developer`, feel free to use your own username to test it. You may need to run these with `sudo`!)*
+
+**Next Step:** Now that we've covered users and security, we'll move to **Task 41: SSH Connectivity**. We'll learn how to check if you can log into a *remote* server without actually staying logged in. This is the first step toward Multi-Server automation! Ready to go remote?

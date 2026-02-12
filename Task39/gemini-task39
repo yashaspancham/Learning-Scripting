@@ -1,0 +1,37 @@
+### **Task 39: User Management (Identity Check)**
+
+In DevOps and Security, scripts often need to verify if a specific user exists before trying to assign permissions or run a service as that user. For example, a "Docker" or "Jenkins" user must exist for certain automated tasks to work.
+
+**The Goal:**
+
+1. Check if a user named `developer` exists on the Linux system.
+2. **Logic:**
+* If the user exists, print: **"User found."**
+* If the user does NOT exist, print: **"User missing - please create it."**
+
+
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: `/etc/passwd` and `id**`
+
+Every user on a Linux system is listed in the `/etc/passwd` file. However, there is a dedicated command called `id` that is much safer to use.
+
+* `id -u username`: Returns the User ID if they exist.
+* **Exit Codes:** If the user exists, `id` returns **0**. If they don't, it returns a non-zero number.
+
+#### **2. Python: The `pwd` module**
+
+Python has a built-in module specifically for the **P**ass**W**or**D** database (Linux users).
+
+* `import pwd`
+* `pwd.getpwnam("username")`: This returns user details.
+* **Error Handling:** If the user doesn't exist, it raises a `KeyError`. You’ll need to use a `try/except` block to catch it.
+
+---
+
+**Can you write the Bash and Python versions for Task 39?** *(Note: You can test this by checking for your own username first!)*
+
+**Next Step:** Once you can check for users, we'll hit **Task 40: Password Expiry Check**. This is a classic security script that alerts you if a user's password is about to expire. Ready to get into security automation?

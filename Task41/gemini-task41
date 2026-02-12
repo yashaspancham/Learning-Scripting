@@ -1,0 +1,34 @@
+### **Task 41: Remote Connectivity (SSH Check)**
+
+DevOps is rarely about just one computer. You will often manage hundreds of servers. Before running a script on a remote machine, you need to check if you can actually reach it via **SSH**.
+
+**The Goal:**
+
+1. Check if you can connect to a remote server (let's use a fake IP: `192.168.1.100`) via SSH.
+2. **The Constraint:** You don't want the script to hang forever if the server is down. Set a **timeout of 5 seconds**.
+3. **Action:** Just check the connection; don't actually run any commands.
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: SSH with BatchMode**
+
+When scripting, we use special flags so SSH doesn't ask for a password or get stuck on "Are you sure you want to connect?".
+
+* `-o ConnectTimeout=5`: Gives up after 5 seconds.
+* `-o BatchMode=yes`: Prevents the script from hanging on a password prompt.
+* `exit`: We append `exit` at the end so it logs in and immediately logs out.
+
+#### **2. Python: `subprocess` with timeout**
+
+In Python, we can control how long we wait for a command to finish using the `timeout` argument in `subprocess.run()`.
+
+* `subprocess.run([...], timeout=5)`
+* If the server is down, Python will raise a `subprocess.TimeoutExpired` exception, which you can catch with `try/except`.
+
+---
+
+**Can you write the Bash and Python versions for Task 41?**
+
+**Next Step:** Once you can check connections, we'll look at **Task 42: Transferring Files (SCP)**. We'll learn how to programmatically move a backup from your local machine to that remote server! Ready to start moving data?
