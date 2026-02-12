@@ -1,0 +1,41 @@
+### **Task 51: The AWS CLI (Cloud Identity)**
+
+Before your script can create servers or delete databases, it needs to know *who* you are. The AWS CLI uses a configuration file (usually in `~/.aws/`) to store your access keys.
+
+**The Goal:**
+
+1. Check if the AWS CLI is installed.
+2. Check who the currently "logged in" user is using the CLI.
+3. **Logic:** If the command fails, the script should say **"AWS CLI not configured."**
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: `aws sts get-caller-identity**`
+
+STS (Security Token Service) is the "Who Am I?" service of AWS.
+
+* Running `aws sts get-caller-identity` returns a JSON object with your Account ID and User ARN.
+* We use the exit code `$?` to see if the credentials are valid.
+
+#### **2. Python: `boto3**`
+
+While we can use `subprocess` to run CLI commands, the industry standard for Python is the library **`boto3`**.
+
+* `import boto3`
+* `client = boto3.client('sts')`
+* `response = client.get_caller_identity()`
+* This returns a Python dictionary, no `json.loads` required!
+
+---
+
+### **Task 51 Challenge**
+
+**Bash:** Write a script that runs the identity check. If successful, use `jq` to print only the **Account ID**.
+
+**Python:** Use `boto3` to get the identity. If it fails (e.g., keys are missing), catch the `botocore.exceptions.NoCredentialsError`.
+
+**Can you write these two?** *(Note: For Python, you'll need `pip install boto3`. For the script to work, you'd usually run `aws configure` first, but for now, we just want the logic.)*
+
+**Next Step:** Once we confirm your identity, we'll move to **Task 52: The S3 Bucket Lister**. We'll learn how to list all your storage buckets and check their creation dates! Ready to look at the cloud?
