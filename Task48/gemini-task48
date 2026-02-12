@@ -1,0 +1,33 @@
+### **Task 48: API Interaction (The POST Request)**
+
+Most of the time, we don't just print JSON to the screen; we send it to a "Webhook" or an API (like sending an alert to Slack or a metric to a monitoring dashboard). This requires an **HTTP POST** request.
+
+**The Goal:**
+
+1. Take the JSON object you created in Task 47.
+2. **Action:** Send that JSON to `https://httpbin.org/post`.
+3. **Requirement:** You must set the "Content-Type" header to `application/json` so the server knows how to read your data.
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: `curl -X POST**`
+
+To send data with curl, we use:
+
+* `-X POST`: Changes the request type from GET to POST.
+* `-H "Content-Type: application/json"`: Tells the server "I am sending JSON."
+* `-d "$json_data"`: Attaches the actual data payload.
+
+#### **2. Python: `requests.post()**`
+
+The `requests` library makes this very intuitive. Instead of manually dumping the JSON to a string, you can use the `json=` parameter, and Python will automatically set the headers and format the data for you.
+
+* `requests.post(url, json=data_dictionary)`
+
+---
+
+**Can you write the Bash and Python versions for Task 48?**
+
+**Next Step:** Once you can send data to APIs, we'll reach **Task 49: Working with Environment Variables**. We'll learn how to hide "Secret" information (like API Keys) so they don't get leaked in your code. Ready to secure your scripts?

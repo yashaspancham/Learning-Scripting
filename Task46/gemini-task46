@@ -1,0 +1,37 @@
+### **Task 46: Parsing JSON Data (The API Key)**
+
+In the DevOps world, almost every tool communicates in **JSON** (JavaScript Object Notation). If you ask AWS for a list of servers, or GitHub for a list of commits, they will send you a structured block of text. You need to know how to "drill down" into that text to get exactly what you need.
+
+**The Goal:**
+
+1. You have a JSON string (provided below).
+2. **Action:** Extract the value of the "status" and the "ip" address from the JSON.
+3. **JSON Data:**
+`{"server": {"id": "aws-123", "status": "running", "network": {"ip": "10.0.0.5", "type": "private"}}}`
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: `jq` (The JSON Processor)**
+
+Bash isn't naturally good at reading JSON, so we use a powerful tool called `jq`. It uses a "dot" notation to navigate keys.
+
+* **To get status:** `echo $json | jq -r '.server.status'`
+* **To get IP:** `echo $json | jq -r '.server.network.ip'`
+* The `-r` flag stands for "raw"—it removes the double quotes from the output.
+
+#### **2. Python: The `json` Module**
+
+Python treats JSON like a **Dictionary**. Once you load it, you access data using square brackets.
+
+* `import json`
+* `data = json.loads(json_string)`
+* `status = data["server"]["status"]`
+
+---
+
+**Can you write the Bash and Python versions for Task 46?**
+*(Note: For Bash, assume you have a variable `json_data='{"server": ...}'`. For Python, use the same string.)*
+
+**Next Step:** After parsing simple JSON, we'll go to **Task 47: Generating JSON**. We'll learn how to take system info (like the CPU/RAM you got in Task 38) and turn it into a JSON object to send to a monitoring dashboard. Ready to create your own data?

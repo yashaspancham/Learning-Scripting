@@ -1,0 +1,34 @@
+### **Task 47: Generating JSON (Reporting Data)**
+
+Usually, your scripts are the ones *gathering* data (like disk space, CPU usage, or process health). To send this data to a modern monitoring tool (like Datadog, Slack, or an API), you need to package it into a clean JSON object.
+
+**The Goal:**
+
+1. Take three variables: `hostname` (e.g., "prod-web-01"), `cpu_usage` (e.g., 45), and `status` (e.g., "healthy").
+2. **Action:** Create a JSON object that looks like this:
+`{"host": "prod-web-01", "metrics": {"cpu": 45, "state": "healthy"}}`
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: Creating JSON with `jq**`
+
+You *could* manually type out the JSON string with echoes and quotes, but that’s a nightmare because of escaping. `jq` has a "mapping" feature to build JSON safely.
+
+* **Syntax:** `jq -n --arg h "$host" --arg c "$cpu" '{host: $h, metrics: {cpu: $c}}'`
+* `--arg` safely passes your Bash variable into the `jq` environment.
+
+#### **2. Python: `json.dumps()**`
+
+In Python, you simply build a standard dictionary and then "dump" it into a string.
+
+* **Step 1:** Create a dict: `my_data = {"host": host, "metrics": {...}}`
+* **Step 2:** Convert to string: `json_string = json.dumps(my_data, indent=4)`
+* Use `indent=4` to make the output "pretty" and readable for humans.
+
+---
+
+**Can you write the Bash and Python versions for Task 47?**
+
+**Next Step:** Now that you can move data in JSON, we’ll move to **Task 48: API Interaction (POST Requests)**. We'll learn how to actually "send" this JSON you just created to a remote web server. Ready to start talking to external APIs?

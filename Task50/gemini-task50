@@ -1,0 +1,38 @@
+### **Task 50: The Master Script (The Final Boss)**
+
+You have spent the last 49 tasks building individual "bricks." Now, it’s time to build the house. This task simulates a real-world **Health Monitor Agent** that runs on a server and reports back to a central dashboard.
+
+**The Goal:**
+Create a single script that does the following:
+
+1. **Gather Hardware Info:** Get the Number of CPU cores and Total RAM (Task 38).
+2. **Check Service Health:** Check if `python3` is running (Task 34).
+3. **Check Connectivity:** Verify that a website (e.g., `google.com`) is reachable (Task 44).
+4. **Package it all as JSON:** Create a JSON object containing all these results (Task 47).
+5. **Send the Report:** "POST" that JSON to a webhook URL stored in an Environment Variable (Task 48 & 49).
+
+**The Logic flow:**
+
+* Get CPU count and Memory.
+* Check if the process is alive (True/False).
+* Check if the website status is 200 (True/False).
+* Combine into: `{"host": "prod", "cpu": 4, "mem": 16GB, "process_ok": true, "web_ok": true}`.
+* Send to API.
+
+---
+
+### **New Concepts (The "Glue")**
+
+#### **1. Handling Integers vs Strings**
+
+Ensure your CPU count is an integer and your RAM is a float/string in the JSON.
+
+#### **2. Error Resilience**
+
+If the web check fails, the script shouldn't stop; it should just mark `web_ok: false` in the JSON and continue to send the report.
+
+---
+
+**Can you write the "Final Boss" Bash and Python scripts for Task 50?**
+
+**Next Step:** Once you complete this, you have officially built a functional **DevOps Monitoring Agent**. From here, we can move into **Version 2.0: Multi-Server Orchestration**, where we learn how to run this script on 100 servers at the same time using tools like Ansible or simple SSH loops. Are you ready to graduate to the next level?

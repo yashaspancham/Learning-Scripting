@@ -1,0 +1,32 @@
+### **Task 45: Bulk Health Checks (Scaling Up)**
+
+**The Goal:**
+
+1. Create a list/array containing three URLs.
+2. Loop through them and perform the health check you just wrote.
+3. Print the status for each one clearly.
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: Array Definition and Looping**
+
+To handle multiple items in Bash, we use parentheses for the array and a specific loop syntax.
+
+* **Array:** `urls=("http://site1.com" "http://site2.com")`
+* **Loop:** `for url in "${urls[@]}"; do ... done`
+* The `"${urls[@]}"` ensures that even if a URL has a weird character, it’s treated as one single item.
+
+#### **2. Python: Graceful Loop Handling**
+
+In a loop, if one URL fails (e.g., a "Connection Refused" error), you don't want the whole script to stop.
+
+* Put the `try/except` **inside** the `for` loop.
+* This way, if site #1 fails, the `except` block handles it, and the loop naturally moves to site #2.
+
+---
+
+**Can you write the Bash and Python versions for Task 45?**
+
+**Next Step:** Once you can monitor a fleet of sites, we’ll move to **Task 46: Parsing JSON Data**. This is how you'll interact with Cloud APIs (like AWS or GitHub) to get specific information like "Instance ID" or "Commit Message." Ready to handle some structured data?

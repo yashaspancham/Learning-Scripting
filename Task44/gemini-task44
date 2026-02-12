@@ -1,0 +1,39 @@
+### **Task 44: Web Service Health (HTTP Status)**
+
+Checking if a server is "Up" with Ping or SSH is great, but just because the server is on doesn't mean the **website** is working. A DevOps engineer needs to verify that the web service (like Nginx or a Python API) is returning a **200 OK** status.
+
+**The Goal:**
+
+1. Check if `http://3.108.53.182` is responding.
+2. **Logic:**
+* If the status code is **200**, print: **"Website is Live."**
+* If it's anything else (like 404 or 500), print: **"Website Error: [Status Code]"**.
+
+
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: `curl` with `--write-out**`
+
+Normally, `curl` prints the whole webpage. To get just the status code, we use special formatting.
+
+* `-s`: Silent mode (hides progress bars).
+* `-o /dev/null`: Throws away the actual HTML content.
+* `-w "%{http_code}"`: Tells curl to only print the 3-digit status code.
+* **Example:** `status=$(curl -s -o /dev/null -w "%{http_code}" http://google.com)`
+
+#### **2. Python: The `requests` Library**
+
+While you can use `urllib`, the industry standard is the `requests` library. It makes handling web traffic incredibly simple.
+
+* `import requests`
+* `response = requests.get("http://3.108.53.182", timeout=5)`
+* `response.status_code`: Gives you the integer (e.g., 200).
+
+---
+
+**Can you write the Bash and Python versions for Task 44?** *(Note: For Python, you might need to use a `try/except` block to catch `requests.exceptions.ConnectionError` in case the server is completely down.)*
+
+**Next Step:** Once you can check a single URL, we'll move to **Task 45: Bulk Health Checks**. We'll learn how to loop through a **list** of URLs to check an entire fleet of websites at once. Ready to scale up?

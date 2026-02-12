@@ -1,0 +1,33 @@
+### **Task 43: Remote Command Execution**
+
+Now that you’ve sent the `backup.tar.gz` file to the remote server, you need to tell the server to actually do something with it—like unzipping it. This is how you perform remote deployments.
+
+**The Goal:**
+
+1. Connect to the remote server (`3.7.55.8`).
+2. Run the command: `tar -xzf /tmp/backup.tar.gz -C /tmp/` (This extracts the file into the `/tmp` folder).
+3. If the command succeeds, print: **"Extraction successful."**
+
+---
+
+### **New Concepts**
+
+#### **1. Bash: Passing commands to SSH**
+
+You can pass a command as a string at the very end of your `ssh` line.
+
+* **Syntax:** `ssh [options] user@host "your_command_here"`
+* **Example:** `ssh -o BatchMode=yes user@3.7.55.8 "ls -l /tmp"`
+
+#### **2. Python: Handling Remote Errors**
+
+When running a remote command via `subprocess`, the `returncode` tells you if the *remote* command failed.
+
+* If `tar` fails on the remote server (e.g., the file is corrupted), SSH will return a non-zero exit code to Python.
+* You can catch this using `check=True` inside your `subprocess.run` call.
+
+---
+
+**Can you write the Bash and Python versions for Task 43?** *(Note: Use the same flags you used in Task 42 to ensure the connection doesn't hang!)*
+
+**Next Step:** After you master remote commands, we’ll move to **Task 44: Checking Web Service Status (HTTP)**. We'll learn how to check if a website is actually "Live" by looking for an HTTP 200 status code. Ready to monitor some web traffic?
